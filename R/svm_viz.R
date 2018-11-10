@@ -6,13 +6,13 @@
 #' @param cl vector of training classes
 #' @param kernel the kernel. See \code{?e1071::svm}
 #' @return a ggplot object
-svm_viz = function(train, cl, kernel = "linear"){
+svm_viz = function(train, cl, kernel = "linear", ...){
 
   test <- expand.grid(x=seq(min(train[,1]-0.1), max(train[,1]+0.1),
                             length.out = 100),
                       y=seq(min(train[,2]-0.1), max(train[,2]+0.1),
                             length.out = 100))
-  classifier=e1071::svm(train, cl, kernel=kernel )
+  classifier=e1071::svm(train, cl, kernel=kernel, ...)
   classif = predict(classifier, newdata=test)
 
   data.contour = data.frame(
