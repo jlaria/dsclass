@@ -1,3 +1,14 @@
+#' Visualize the kNN classifiers
+#'
+#' Plots the kNN decision boundary for 2D problems.
+#'
+#' @param train matrix or data.frame with 2 columns
+#' @param cl vector of training classes
+#' @param k number of neighbors
+#' @param validate matrix or data.frame with 2 columns
+#' @param cl_validate vector of classes
+#' @param prob_size whether to adjust the size of points depending on the estimated probabilities
+#' @return a ggplot object
 knn_viz = function(train, cl, k = 7, validate=NULL, cl_validate=NULL, prob_size = T){
 
   test <- expand.grid(x=seq(min(c(train[,1], validate[,1]))-0.1,

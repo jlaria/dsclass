@@ -1,3 +1,11 @@
+#' Visualize the SVM classifiers
+#'
+#' Plots the SVM decision boundary for 2D problems.
+#'
+#' @param train matrix or data.frame with 2 columns
+#' @param cl vector of training classes
+#' @param kernel the kernel. See \code{?e1071::svm}
+#' @return a ggplot object
 svm_viz = function(train, cl, kernel = "linear"){
 
   test <- expand.grid(x=seq(min(train[,1]-0.1), max(train[,1]+0.1),
