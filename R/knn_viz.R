@@ -7,7 +7,7 @@ knn_viz = function(train, cl, k = 7, validate=NULL, cl_validate=NULL, prob_size 
                             max(c(train[,2], validate[,2]))+0.1,
                             length.out = 100))
 
-  classif <- knn(train, test, cl, k, prob=TRUE)
+  classif <- class::knn(train, test, cl, k, prob=TRUE)
   prob <- attr(classif, "prob")
 
   data.contour = data.frame(
